@@ -1,29 +1,33 @@
 package tw.nekomimi.nekogram.helpers;
 
 public class Extra {
-    // Константы для аналитики и ошибок
+    // Константы
     public static final String SENTRY_DSN = "";
     public static final boolean FORCE_ANALYTICS = false;
-    
-    // Заглушка для объекта botInfo и подобных
-    public static final String botInfo = "";
 
-    // Метод для получения системного помощника
+    // Объект botInfo с методами, которые искал компилятор
+    public static final BotInfo botInfo = new BotInfo();
+
+    public static class BotInfo {
+        public String getId() { return "0"; }
+        public String getUsername() { return "nekogram_bot"; }
+    }
+
+    // Методы для работы с ботами (вызываются в UserHelper и других)
     public static String getHelperBot() {
         return "nekogram_bot";
     }
 
-    // Метод для получения бота информации о пользователях
     public static String getUserInfoBot(boolean fallback) {
         return "nekogram_bot";
     }
 
-    // Дополнительные методы, если код ищет их в классе Extra
-    public static String getId() {
-        return "0";
-    }
-
-    public static String getUsername() {
-        return "nekogram_bot";
+    // Статические методы на случай прямого вызова из Extra
+    public static String getId() { return "0"; }
+    public static String getUsername() { return "nekogram_bot"; }
+    
+    // Метод для облачного хранилища (часто встречается в Nekogram)
+    public static Object getCloudConfig() {
+        return null;
     }
 }
